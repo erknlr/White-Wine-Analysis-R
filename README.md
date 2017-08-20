@@ -1,6 +1,12 @@
 
 # Analysis of White Wine Dataset 
-========================================================
+
+As a wine lover, I would like to analyse the 'White Wine Quality' dataset and try 
+to understand which attributes really contribute to the wine quality. As I am 
+not an expert in wines, I am not sure what to look for exactly however I am 
+hoping the dataset will give me a rough idea what to look for next time when I 
+am purchasing wine. 
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, packages}
 # Load all of the packages 
@@ -17,11 +23,7 @@ wine <- read.csv('wineQualityWhites.csv')
 
 ```
 
-As a wine lover, I would like to analyse the 'White Wine Quality' dataset and try 
-to understand which attributes really contribute to the wine quality. As I am 
-not an expert in wines, I am not sure what to look for exactly however I am 
-hoping the dataset will give me a rough idea what to look for next time when I 
-am purchasing wine. 
+
 
 # Univariate Plots Section
 
