@@ -58,10 +58,9 @@ summary(wine$quality)
 The bulk of the wines got a score between 5 to 7.
 ```{r echo=FALSE, fig.width=10}
 ggplot(data = wine, aes(quality)) + geom_bar()
-![png](Graphs/distribution_of_wine_qualities.png)
 
 ```
-
+![png](Graphs/distribution_of_wine_qualities.png)
 &nbsp;
 
 #### Alcohol percentage of wines:
