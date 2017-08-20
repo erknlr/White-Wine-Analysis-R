@@ -73,7 +73,7 @@ percentage is at 10.51.
 ggplot(data = wine, aes(alcohol)) + geom_histogram(binwidth = 0.1) +
   scale_x_continuous(breaks = seq(8,14,1))
 ```
-
+![png](Graphs/alcohol_percentage_of_wines.png)
 &nbsp;
 
 #### PH distribution of wines:
@@ -84,7 +84,7 @@ at 3.188.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(pH)) + geom_histogram(binwidth = 0.01)
 ```
-
+![png](Graphs/ph_distribution_of_wines.png)
 &nbsp;
 
 #### Residual sugar in each wine:
@@ -94,7 +94,7 @@ Residual sugar determines the sweetness of the wines. It ranges between 0.6 to
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(residual.sugar)) + geom_histogram(binwidth = 0.5)
 ```
-
+![png](Graphs/residual_sugar_in_each_wine.png)
 &nbsp;
 
 #### Density of wines:
@@ -106,7 +106,7 @@ have a density until 1.0025. Mean densitiy for the dataset is 0.994
 ggplot(data = wine, aes(density)) + geom_histogram(binwidth = 0.001) +
   coord_cartesian(xlim = c(0.98, 1.01)) + scale_x_continuous(breaks = seq(0.98, 1.01, 0.005))
 ```
-
+![png](Graphs/densitiy_of_wines.png)
 &nbsp;
 
 #### Fixed Acidity:
@@ -117,7 +117,7 @@ The fixed acidity ranges between 3.8 and 14.2. Mean fixed acidity is at 6.855.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(fixed.acidity)) + geom_histogram()
 ```
-
+![png](Graphs/fixed_acidity.png)
 &nbsp;
 
 #### Volatile Acidity:
@@ -128,7 +128,7 @@ Volatile acidity starts from 0.08 and ends at 1.1 with a mean at 0.2782.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(volatile.acidity)) + geom_histogram()
 ```
-
+![png](Graphs/volatile_acidity.png)
 &nbsp;
 
 #### Citric Acid:
@@ -140,7 +140,7 @@ at 1.66 and the average rate is 0.3342.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(citric.acid)) + geom_histogram()
 ```
-
+![png](Graphs/citric_acid.png)
 &nbsp;
 
 #### Chlorides:
@@ -151,7 +151,7 @@ is at 0.04577.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(chlorides)) + geom_histogram()
 ```
-
+![png](Graphs/chlorides.png)
 &nbsp;
 
 #### Free Sulfur Dioxide:
@@ -162,7 +162,7 @@ main bulk is between 23 and 46.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(free.sulfur.dioxide)) + geom_histogram()
 ```
-
+![png](Graphs/free_sulfur_dioxide.png)
 &nbsp;
 
 #### Total Sulfur Dioxide:
@@ -173,7 +173,7 @@ The total sulfur dioxide has a nice normal distribution, starts at 9 and reaches
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(total.sulfur.dioxide)) + geom_histogram()
 ```
-
+![png](Graphs/total_sulfur_dioxide.png)
 &nbsp;
 
 #### Sulphates:
@@ -186,7 +186,7 @@ is 1.08
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(sulphates)) + geom_histogram()
 ```
-
+![png](Graphs/sulphates.png)
 &nbsp;
 
 # Univariate Analysis
@@ -232,7 +232,7 @@ Let's start by using GGPAIRS to investigate all bivariate relations:
 ```{r echo=FALSE, Bivariate_Plots, fig.width= 14, fig.height= 16}
 ggpairs(wine)
 ```
-
+![png](Graphs/ggpairs.png)
 &nbsp;
 
 The features that I mentioned above have the following correlations to quality:
@@ -259,7 +259,7 @@ ggplot(data = wine, aes(x= as.factor(quality), y= alcohol)) +
   geom_boxplot() 
 
 ```
-
+![png](Graphs/quality_vs_alcohol1.png)
 &nbsp;
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
@@ -267,7 +267,7 @@ ggplot(data = wine, aes(x= quality, y= alcohol)) + geom_jitter(alpha = 1/5) +
   geom_smooth(method='lm')
 
 ```
-
+![png](Graphs/quality_vs_alcohol2.png)
 &nbsp;
 
 #### Quality vs. Density
@@ -276,14 +276,14 @@ ggplot(data = wine, aes(x= quality, y= alcohol)) + geom_jitter(alpha = 1/5) +
 ggplot(data = wine, aes(x= as.factor(quality), y= density)) + geom_boxplot()
 
 ```
-
+![png](Graphs/quality_vs_density1.png)
 &nbsp;
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
 ggplot(data = wine, aes(x= quality, y= density)) + geom_jitter(alpha = 1/10) +
   geom_smooth(method='lm')
 ```
-
+![png](Graphs/quality_vs_density2.png)
 
 There are several interesting things to see here. As mentioned above, there is 
 a correlation of 0.436 between alcohol and quality. This can be seen in the 
@@ -321,7 +321,7 @@ ggplot(aes(x = residual.sugar, y = density), data = wine) +
                     ylim = c(min(wine$density), quantile(wine$density, 0.99))) +
   geom_smooth(method = "lm", se = FALSE) 
 ```
-
+![png](Graphs/density_vs_residual_sugar.png)
 &nbsp;
 
 #### Density vs. Alcohol
@@ -336,7 +336,7 @@ ggplot(aes(x = density, y = alcohol), data = wine) +
                            quantile(wine$density, .99))) +
   geom_smooth(method = "lm", se = FALSE) 
 ```
-
+![png](Graphs/density_vs_alcohol.png)
 &nbsp;
 
 # Bivariate Analysis
@@ -385,6 +385,7 @@ ggplot(data = wine, aes(x = density, y = alcohol, color = as.factor(quality))) +
                   ylim = c(min(wine$alcohol), quantile(wine$alcohol, 0.99))) +
   scale_color_brewer(type='qual', palette =  3)
 ```
+![png](Graphs/alcohol_vs_density_vs_quality.png)
 
 Here, I plotted alcohol vs. density and colored the quality scores. We can see 
 from the plot the negative relationship between alcohol and density: as alcohol 
@@ -417,7 +418,8 @@ ggplot(data = wine, aes(x = residual.sugar, y = density,
   scale_color_brewer(type = 'qual', palette = 3)
  
 ```
-
+![png](Graphs/density_vs_residual_sugar_vs_alcohol.png)
+,
 This plot shows an interesting relationship between these 3 variables. As the 
 wines become sweeter, the density increases. On the other hand, for the same 
 sweetness level, more alcohol makes the wines less dense.  
@@ -462,7 +464,7 @@ ggplot(data = wine, aes(x= as.factor(quality), y= alcohol)) +
   scale_fill_brewer(palette=1)
 
 ```
-
+![png](Graphs/finalplot1.png)
 &nbsp;
 
 ### Description One
@@ -489,7 +491,7 @@ ggplot(aes(x = residual.sugar, y = density), data = wine) +
   theme(plot.title = element_text(hjust = 0.5))
 
 ```
-
+![png](Graphs/finalplot2.png)
 &nbsp;
 
 ### Description Two
@@ -514,7 +516,7 @@ ggplot(data = wine, aes(x = density, y = alcohol, color = as.factor(quality))) +
   ggtitle('Quality by Alcohol vs. Density') + 
   theme(plot.title = element_text(hjust = 0.5))
 ```
-
+![png](Graphs/finalplot3.png)
 &nbsp;
 
 ### Description Three
